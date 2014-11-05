@@ -5,15 +5,23 @@ Freifunk Westpfalz specific Gluon configuration
 
 Versionen:
 
-ffwp - gluon - Branches (*)
+
+ffwp: gluon
 
 ------------------------------------------
 
-0.1.1 - v2014.3.1 - N, B@2014-11-05
+0.1.1: v2014.3.1
 
-0.1.0 - v2014.3 - N
+0.1.0: v2014.3
 
-0.1+0 - v2014.3 - N
+0.1+0: v2014.3
 
 
-(*) released als N=NIGHTLY; B=BETA; S=STABLE
+
+Betas:
+
+------------------------------------------
+
+0.1.1-141104-1750
+
+0.1+0-beta20141018-0215
