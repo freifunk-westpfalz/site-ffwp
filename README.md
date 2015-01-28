@@ -10,6 +10,9 @@ Versionen (ffwp: gluon)
 
 ------------------------------------------
 
+0.2.2: v2014.4
++ keys-Mail angepasst fuer einfacheres copy & paste in peers-file
+
 0.2.1: v2014.4
 + Ergaenzung um alternative ipv4 Adresse fuer GW02, falls DNS ausfaellt
 
