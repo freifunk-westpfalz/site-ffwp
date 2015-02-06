@@ -12,6 +12,7 @@ Versionen (ffwp: gluon)
 
 0.2.3: v2014.4
 + Autoupdater korrigiert (angeschaltet) im config mode
++ Autoupdate direkt ausfuehren (GLUON_PRIORITY=0) 
 
 0.2.2: v2014.4
 + keys-Mail angepasst fuer einfacheres copy & paste in peers-file
