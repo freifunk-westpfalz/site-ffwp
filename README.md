@@ -10,6 +10,11 @@ Versionen (ffwp: gluon)
 
 ------------------------------------------
 
+0.3.0: v2015.1
++ Mehrsprachiger Config Mode (EN DE)
++ Mesh-on-LAN
++ Erweiterte WLAN Konfiguration 
+
 0.2.3: v2014.4
 + Autoupdater korrigiert (angeschaltet) im config mode
 + Autoupdate direkt ausfuehren (GLUON_PRIORITY=0) 
@@ -46,6 +51,8 @@ Versionen (ffwp: gluon)
 Betas:
 
 ------------------------------------------
+
+0.3.0-150617-0215
 
 0.2.3-150207-0215
 
