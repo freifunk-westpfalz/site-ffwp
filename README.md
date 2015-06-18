@@ -10,7 +10,10 @@ Versionen (ffwp: gluon)
 
 ------------------------------------------
 
-0.3.0: v2015.1
+0.3.1: v2015.1
++ MTU Korrektur
+
+0.3.0: v2015.1  (falsche MTU, nicht installieren!)
 + Mehrsprachiger Config Mode (EN DE)
 + Mesh-on-LAN
 + Erweiterte WLAN Konfiguration 
@@ -51,6 +54,8 @@ Versionen (ffwp: gluon)
 Betas:
 
 ------------------------------------------
+
+0.3.1-150618-1023
 
 0.3.0-150617-0215
 
