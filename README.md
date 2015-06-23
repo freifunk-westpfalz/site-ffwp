@@ -10,6 +10,9 @@ Versionen (ffwp: gluon)
 
 ------------------------------------------
 
+0.3.2: v2015.1.1
++ switch to Gluon v.2015.1.1
+
 0.3.1: v2015.1
 + MTU Korrektur
 
