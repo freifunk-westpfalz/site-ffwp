@@ -10,8 +10,12 @@ Versionen (ffwp: gluon)
 
 ------------------------------------------
 
+0.3.3: v2015.1.1
++ Mesh-VPN im Default wieder einschalten
+
 0.3.2: v2015.1.1
 + Gluon 2015.1.1
++ SSID fuer 5GHz korrigiert (Suffix 5GHz fehlte)
 
 0.3.1: v2015.1
 + MTU Korrektur
