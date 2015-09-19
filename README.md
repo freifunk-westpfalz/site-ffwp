@@ -10,9 +10,11 @@ Versionen (ffwp: gluon)
 
 ------------------------------------------
 
-0.4.0: v2015.1.1
+0.4.0: v2015.1.2
++ Gluon 2015.1.2
 + Limit fuer verbundene Gateways auf 1 reduziert (verringert Bandbreite)
 + Anpassung Sprachdatei Englisch 
++ HT20 statt HT40+ verwenden (bei 2,4 GHz)
 
 0.3.3: v2015.1.1
 + Mesh-VPN im Default wieder einschalten
