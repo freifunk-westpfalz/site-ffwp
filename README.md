@@ -15,6 +15,7 @@ Versionen (ffwp: gluon)
 + Limit fuer verbundene Gateways auf 1 reduziert (verringert Bandbreite)
 + Anpassung Sprachdatei Englisch 
 + HT20 statt HT40+ verwenden (bei 2,4 GHz)
++ Autobuilder Key aus BETA und STABLE entfernt, good_signatures entsprechend verringert
 
 0.3.3: v2015.1.1
 + Mesh-VPN im Default wieder einschalten
