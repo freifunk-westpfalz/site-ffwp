@@ -33,7 +33,7 @@ SITE_HASH=(`git log --pretty=format:'%H' -n 1`)
 echo $SITE_HASH >> ../$LOGFILE 2>&1
 echo $SITE_HASH > ../../site.hash.old
 
-git checkout master > ../$LOGFILE 2>&1
+git checkout 2015.2-dev > ../$LOGFILE 2>&1
 git pull  > ../$LOGFILE 2>&1
 
 SITE_HASH=(`git log --pretty=format:'%H' -n 1`)
