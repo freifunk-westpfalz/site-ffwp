@@ -10,12 +10,23 @@ Versionen (ffwp: gluon)
 
 ------------------------------------------
 
+0.5.1: v2016.1
++ Gluon 2016.1 
++ Entfernen der Email-Aufforderung beim Einrichten als Mesh-VPN
++ (intern) Firmware-Build Skripte in site aufgenommen
+
+0.5.0: 
++ l√§ngere Testphase mit master (damaliges pseudo v2015.2)
++ Tests mit 802.11s Parallelbetrieb, aber wieder entfernt
++ ab Februar 2015 erste Builds mit Gluon Release v2016.1
++ Umstellung site.conf/mk auf neues Release
+
 0.4.0: v2015.1.2
 + Gluon 2015.1.2
 + Limit fuer verbundene Gateways auf 1 reduziert (verringert Bandbreite)
 + Anpassung Sprachdatei Englisch 
 + HT20 statt HT40+ verwenden (bei 2,4 GHz)
-+ neue/ge‰nderte Keys/Ports f¸r Gateways 04 bis 09
++ neue/ge√§nderte Keys/Ports f√ºr Gateways 04 bis 09
 + Autobuilder Key aus BETA und STABLE entfernt, good_signatures entsprechend verringert
 
 0.3.3: v2015.1.1
