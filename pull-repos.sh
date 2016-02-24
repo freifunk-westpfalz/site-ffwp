@@ -31,7 +31,8 @@ echo branch >> ../$LOGFILE
 git branch|grep \*  >> ../$LOGFILE 2>&1
 SITE_HASH=(`git log --pretty=format:'%H' -n 1`)
 echo $SITE_HASH >> ../$LOGFILE 2>&1
-echo $SITE_HASH > ../../site.hash.old
+#echo $SITE_HASH > ../../site.hash.old
+touch ../../site.hash.old
 
 git checkout 2015.2-dev > ../$LOGFILE 2>&1
 git pull  > ../$LOGFILE 2>&1
@@ -52,7 +53,8 @@ echo branch  >> $LOGFILE
 git branch|grep \*  >> $LOGFILE 2>&1
 GLUON_HASH=(`git log --pretty=format:'%H' -n 1`)
 echo $GLUON_HASH  >> $LOGFILE 2>&1
-echo $GLUON_HASH  > ../gluon.hash.old
+#echo $GLUON_HASH  > ../gluon.hash.old
+touch ../gluon.hash.old
 
 #git checkout master >> $LOGFILE 2>&1
 #git pull  >> $LOGFILE 2>&1
