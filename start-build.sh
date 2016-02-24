@@ -6,7 +6,7 @@
 ######################################################################################
 
 date
-echo "Repos aktualisieren..."
+echo "Repositories aktualisieren..."
 ./pull-repos.sh
 
 date

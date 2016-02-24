@@ -20,16 +20,11 @@ BRANCH=nightly
 #DEBUG=V\=s
 DEBUG=
 
-#git pull
 cd ..
 if [ ! -d "site" ]; then
 	echo "This script must be called from within the site directory"
 	return
 fi
-
-#git pull
-
-#if [[ 1 = 2 ]]; then
 
 LOGFILE=../build.log
 RESULT=0
@@ -38,69 +33,43 @@ rm $LOGFILE
 date | tee -a $LOGFILE
 rm -r output/images
 #for TARGET in  ar71xx-generic
-for TARGET in  ar71xx-generic ar71xx-nand mpc85xx-generic x86-kvm_guest x86-generic
+for TARGET in  ar71xx-generic ar71xx-nand mpc85xx-generic x86-generic x86-kvm_guest
 do
 	date | tee -a $LOGFILE
 	if [ -z "$VERSION" ]
 	then
 		echo "Starting work on target $TARGET" | tee -a $LOGFILE
-		
 		echo -e "\n\n\nmake GLUON_TARGET=$TARGET GLUON_BRANCH=stable update" >> $LOGFILE
 		make GLUON_TARGET=$TARGET GLUON_BRANCH=stable update >> $LOGFILE 2>&1
-		
 		echo -e "\n\n\nmake GLUON_TARGET=$TARGET GLUON_BRANCH=stable clean" >> $LOGFILE
 		make GLUON_TARGET=$TARGET GLUON_BRANCH=stable clean >> $LOGFILE 2>&1
-		
-		# supporting CF cards
-		if [[ "$TARGET" == "x86-generic" ]]
-		then
-			echo "CONFIG_PATA_ATIIXP=y" >> openwrt/target/linux/x86/generic/config-default
-		fi
-		
 		echo -e "\n\n\nmake $DEBUG GLUON_TARGET=$TARGET GLUON_BRANCH=stable -j7" >> $LOGFILE
 		make $DEBUG GLUON_TARGET=$TARGET GLUON_BRANCH=stable -j7 >> $LOGFILE 2>&1
-		
+
 		if [ $? -ne 0 ]; then
-			RESULT=$(($RESULT + 1)) 
+			RESULT=$(($RESULT + 1))
 		fi
-		
-		if [[ "$TARGET" == "x86-generic" ]]
-		then		
-			sed -i '/CONFIG_PATA_ATIIXP=y/d' openwrt/target/linux/x86/generic/config-default
-		fi
+
 		echo -e "\n\n\n============================================================\n\n" >> $LOGFILE
 	else
 		echo "Starting work on target $TARGET" | tee -a $LOGFILE
-		
 		echo -e "\n\n\nmake GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION update" >> $LOGFILE
 		make GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION update >> $LOGFILE 2>&1
-		
 		echo -e "\n\n\nmake GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION clean" >> $LOGFILE
 		make GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION clean >> $LOGFILE 2>&1
-		
-		# supporting CF cards
-		if [[ "$TARGET" == "x86-generic" ]]
-		then
-			echo "CONFIG_PATA_ATIIXP=y" >> openwrt/target/linux/x86/generic/config-default
-		fi
-		
 		echo -e "\n\n\nmake $DEBUG GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION -j7" >> $LOGFILE
 		make $DEBUG GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION -j7 >> $LOGFILE 2>&1
-		
+
 		if [ $? -ne 0 ]; then
-			RESULT=$(($RESULT + 1)) 
+			RESULT=$(($RESULT + 1))
 		fi
-                
-		if [[ "$TARGET" == "x86-generic" ]]
-		then		
-			sed -i '/CONFIG_PATA_ATIIXP=y/d' openwrt/target/linux/x86/generic/config-default
-		fi                
+
 		echo -e "\n\n\n============================================================\n\n" >> $LOGFILE
 	fi
 done
 
 if [ $RESULT -ne 0 ]; then
-	echo "Compilation FAILED, see build.log" | tee -a $LOGFILE
+	echo "Compilation FAILED, see build.log         $RESULT error/s" | tee -a $LOGFILE
 	cd site
 	exit 1
 else
@@ -151,7 +120,7 @@ else
 	cd ../../../
 
 	date >> $LOGFILE
-	echo "Done :)" | tee -a $LOGFILE
+	echo "Done :)         $RESULT error/s"| tee -a $LOGFILE
 fi
 
 cd site
