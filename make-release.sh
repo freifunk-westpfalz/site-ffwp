@@ -53,7 +53,7 @@ do
 		# supporting CF cards
 		if [[ "$TARGET" == "x86-generic" ]]
 		then
-			echo "CONFIG_PATA_ATIIXP=y" >> openwrt/target/linux/x86/generic/config-3.10
+			echo "CONFIG_PATA_ATIIXP=y" >> openwrt/target/linux/x86/generic/config-default
 		fi
 		
 		echo -e "\n\n\nmake $DEBUG GLUON_TARGET=$TARGET GLUON_BRANCH=stable -j7" >> $LOGFILE
@@ -64,6 +64,11 @@ do
 			#ok
 		else
 			RESULT=1
+		fi
+		
+		if [[ "$TARGET" == "x86-generic" ]]
+		then		
+			sed -i '/CONFIG_PATA_ATIIXP=y/d' openwrt/target/linux/x86/generic/config-default
 		fi
 		echo -e "\n\n\n============================================================\n\n" >> $LOGFILE
 	else
@@ -78,7 +83,7 @@ do
 		# supporting CF cards
 		if [[ "$TARGET" == "x86-generic" ]]
 		then
-			echo "CONFIG_PATA_ATIIXP=y" >> openwrt/target/linux/x86/generic/config-3.10
+			echo "CONFIG_PATA_ATIIXP=y" >> openwrt/target/linux/x86/generic/config-default
 		fi
 		
 		echo -e "\n\n\nmake $DEBUG GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION -j7" >> $LOGFILE
@@ -89,6 +94,11 @@ do
                 else
                         RESULT=1
                 fi
+                
+		if [[ "$TARGET" == "x86-generic" ]]
+		then		
+			sed -i '/CONFIG_PATA_ATIIXP=y/d' openwrt/target/linux/x86/generic/config-default
+		fi                
 		echo -e "\n\n\n============================================================\n\n" >> $LOGFILE
 	fi
 done
