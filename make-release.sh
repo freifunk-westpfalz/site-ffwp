@@ -37,18 +37,28 @@ rm $LOGFILE
 date | tee -a $LOGFILE
 rm -r output/images
 #for TARGET in  ar71xx-generic
-for TARGET in  ar71xx-generic ar71xx-nand mpc85xx-generic x86-generic x86-kvm_guest
+for TARGET in  ar71xx-generic ar71xx-nand mpc85xx-generic x86-kvm_guest x86-generic
 do
 	date | tee -a $LOGFILE
 	if [ -z "$VERSION" ]
 	then
 		echo "Starting work on target $TARGET" | tee -a $LOGFILE
+		
 		echo -e "\n\n\nmake GLUON_TARGET=$TARGET GLUON_BRANCH=stable update" >> $LOGFILE
 		make GLUON_TARGET=$TARGET GLUON_BRANCH=stable update >> $LOGFILE 2>&1
+		
 		echo -e "\n\n\nmake GLUON_TARGET=$TARGET GLUON_BRANCH=stable clean" >> $LOGFILE
 		make GLUON_TARGET=$TARGET GLUON_BRANCH=stable clean >> $LOGFILE 2>&1
+		
+		# supporting CF cards
+		if [[ "$TARGET" == "x86-generic" ]]
+		then
+			echo "CONFIG_PATA_ATIIXP=y" >> openwrt/target/linux/x86/generic/config-3.10
+		fi
+		
 		echo -e "\n\n\nmake $DEBUG GLUON_TARGET=$TARGET GLUON_BRANCH=stable -j7" >> $LOGFILE
 		make $DEBUG GLUON_TARGET=$TARGET GLUON_BRANCH=stable -j7 >> $LOGFILE 2>&1
+		
 		if [ $? -eq 0 ]; then
 			RESULT=0 
 			#ok
@@ -58,12 +68,22 @@ do
 		echo -e "\n\n\n============================================================\n\n" >> $LOGFILE
 	else
 		echo "Starting work on target $TARGET" | tee -a $LOGFILE
+		
 		echo -e "\n\n\nmake GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION update" >> $LOGFILE
 		make GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION update >> $LOGFILE 2>&1
+		
 		echo -e "\n\n\nmake GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION clean" >> $LOGFILE
 		make GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION clean >> $LOGFILE 2>&1
+		
+		# supporting CF cards
+		if [[ "$TARGET" == "x86-generic" ]]
+		then
+			echo "CONFIG_PATA_ATIIXP=y" >> openwrt/target/linux/x86/generic/config-3.10
+		fi
+		
 		echo -e "\n\n\nmake $DEBUG GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION -j7" >> $LOGFILE
 		make $DEBUG GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION -j7 >> $LOGFILE 2>&1
+		
                 if [ $? -eq 0 ]; then
                         RESULT=0
                 else
