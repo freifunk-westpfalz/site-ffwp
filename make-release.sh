@@ -32,6 +32,7 @@ fi
 #if [[ 1 = 2 ]]; then
 
 LOGFILE=../build.log
+RESULT=0
 
 rm $LOGFILE
 date | tee -a $LOGFILE
@@ -59,11 +60,8 @@ do
 		echo -e "\n\n\nmake $DEBUG GLUON_TARGET=$TARGET GLUON_BRANCH=stable -j7" >> $LOGFILE
 		make $DEBUG GLUON_TARGET=$TARGET GLUON_BRANCH=stable -j7 >> $LOGFILE 2>&1
 		
-		if [ $? -eq 0 ]; then
-			RESULT=0 
-			#ok
-		else
-			RESULT=1
+		if [ $? -ne 0 ]; then
+			RESULT=$(($RESULT + 1)) 
 		fi
 		
 		if [[ "$TARGET" == "x86-generic" ]]
@@ -89,11 +87,9 @@ do
 		echo -e "\n\n\nmake $DEBUG GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION -j7" >> $LOGFILE
 		make $DEBUG GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION -j7 >> $LOGFILE 2>&1
 		
-                if [ $? -eq 0 ]; then
-                        RESULT=0
-                else
-                        RESULT=1
-                fi
+		if [ $? -ne 0 ]; then
+			RESULT=$(($RESULT + 1)) 
+		fi
                 
 		if [[ "$TARGET" == "x86-generic" ]]
 		then		
