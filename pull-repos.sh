@@ -34,7 +34,7 @@ echo $SITE_HASH >> ../$LOGFILE 2>&1
 #echo $SITE_HASH > ../../site.hash.old
 touch ../../site.hash.old
 
-git checkout 2015.2-dev > ../$LOGFILE 2>&1
+git checkout master > ../$LOGFILE 2>&1
 git pull  > ../$LOGFILE 2>&1
 
 SITE_HASH=(`git log --pretty=format:'%H' -n 1`)
@@ -61,7 +61,7 @@ touch ../gluon.hash.old
 
 #git fetch origin 'refs/tags/*:refs/tags/*' >> $LOGFILE 2>&1
 #git tag -l >> $LOGFILE 2>&1
-git checkout tags/v2016.1 >> $LOGFILE 2>&1
+git checkout tags/v2016.1.1 >> $LOGFILE 2>&1
 git pull >> $LOGFILE 2>&1
 
 GLUON_HASH=(`git log --pretty=format:'%H' -n 1`)
