@@ -10,9 +10,16 @@ Versionen (ffwp: gluon)
 
 ------------------------------------------
 
+0.5.2: v2016.1.1
++ Gluon 2016.1.1 
++ weitere Domain fuer alle Gateways und NTP
++ weitere Domain und https fuer Autoupdater,
+  Aenderung der Reihenfolge, so dass Updates zuerst ueber Nameserver gehen
+
 0.5.1: v2016.1
 + Gluon 2016.1 
 + Entfernen der Email-Aufforderung beim Einrichten als Mesh-VPN
++ Autoupdater Key fuer Xermon
 + (intern) Firmware-Build Skripte in site aufgenommen
 
 0.5.0: 
