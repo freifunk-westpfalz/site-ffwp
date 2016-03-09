@@ -121,6 +121,8 @@ else
 
 	date >> $LOGFILE
 	echo "Done :)         $RESULT error/s"| tee -a $LOGFILE
+
+	cp $LOGFILE output/images/.build.log
 fi
 
 cd site
