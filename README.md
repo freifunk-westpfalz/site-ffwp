@@ -10,6 +10,10 @@ Versionen (ffwp: gluon)
 
 ------------------------------------------
 
+0.5.3: v2016.1.1
++ Reboot Text zeigt nun wieder Schluessel
++ (intern) Firmware-Build Skripte ergaenzt um make-manifest
+
 0.5.2: v2016.1.1
 + Gluon 2016.1.1 
 + weitere Domain fuer alle Gateways und NTP
@@ -87,6 +91,8 @@ Versionen (ffwp: gluon)
 Betas:
 
 ------------------------------------------
+
+0.5.2-160304-0022
 
 0.4.0-151015-0115
 
