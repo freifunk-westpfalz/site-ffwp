@@ -20,7 +20,7 @@ msgstr ""
 
 msgid "gluon-config-mode:pubkey"
 msgstr ""
-"<p>This is your Freifunk node's public key. It is shown here only for your reference, we do not need it. The node is now able to connect to our VPN. "
+"<p>The node is now ready to use. This is your Freifunk node's public key. It is shown here only for your reference, we do not need it. "
 "</p>"
 "<div class=\"the-key\">"
 " # <%= hostname %>"
