@@ -10,9 +10,11 @@ Versionen (ffwp: gluon)
 
 ------------------------------------------
 
-0.5.3: v2016.1.1
+0.5.3: v2016.1.2
++ Gluon 2016.1.2 
 + Reboot Text zeigt nun wieder Schluessel
 + (intern) Firmware-Build Skripte ergaenzt um make-manifest
++ (intern) Build-Skripte LOG-Files angepasst
 
 0.5.2: v2016.1.1
 + Gluon 2016.1.1 
