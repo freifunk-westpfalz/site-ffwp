@@ -122,7 +122,7 @@ else
 	date >> $LOGFILE
 	echo "Done :)         $RESULT error/s"| tee -a $LOGFILE
 
-	cp $LOGFILE output/images/.build.log
+	cp $LOGFILE output/images/.build.txt
 fi
 
 cd site

@@ -46,7 +46,7 @@ if [ $NEED_BUILD -gt 0 ];then
   if [ $? -eq 0 ];then
     echo $GLUON_HASH > ../../gluon.hash.old
     echo $SITE_HASH > ../../site.hash.old
-    cp ../../start-build.log ../output/images/.start-build.log
+    cp ../../start-build.log ../output/images/.start-build.txt
   fi
 
 
