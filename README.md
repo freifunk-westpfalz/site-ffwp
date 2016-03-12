@@ -4,7 +4,7 @@ site-ffwp
 Freifunk Westpfalz - Gluon Konfiguration
 
 ------------------------------------------
-### Build Schritte:
+### Build Schritte
 
 Jede Nacht laeuft ein Erstell-Vorgang (via CRON), der folgendes startet; dabei wird automatisch auch signiert:
 
@@ -112,11 +112,8 @@ Dies geschieht durch Kopieren in den dafuer vorgesehen Ordner mithilfe dieses Sk
 
 0.1+0: v2014.3
 
-
-
-Betas:
-
 ------------------------------------------
+### Liste der Beta-Builds
 
 0.5.2-160304-0022
 
@@ -126,8 +123,7 @@ Betas:
 
 0.3.2-150629-0130
 
-0.3.1-150618-2325
-0.3.1-150618-1247
+0.3.1-150618-2325 und 0.3.1-150618-1247
 
 0.3.0-150617-0215
 
@@ -149,11 +145,8 @@ Betas:
 
 0.1+0-beta20141018-0215
 
-
-
-Stables:
-
 ------------------------------------------
+### Liste der Stable-Builds
 
 0.4.0-151025-1431 (2015-10-25)
 
