@@ -4,25 +4,31 @@ site-ffwp
 Freifunk Westpfalz - Gluon Konfiguration
 
 ------------------------------------------
-Build Schritte:
+### Build Schritte:
 
+Jede Nacht laeuft ein Erstell-Vorgang (via CRON), der folgendes startet; dabei wird automatisch auch signiert:
 
-$ start-build.sh
-    startet: pull-repos.sh
-    startet: make-release.sh
+    $ start-build.sh
+        #startet: pull-repos.sh
+        #startet: make-release.sh
 
-$ make-manifest.sh beta   #oder stable
+Fuer BETA (oder STABLE) muss eine eigene MANIFEST-Datei erzeugt werden.
+Dies geschieht mit nachfolgendem Befehl bei Bedarf manuell:
 
-$ copy-to-pre.sh beta   #oder stable
+    $ make-manifest.sh beta   #oder stable
 
-manuelles Signieren manifest-Datei
+Danach kann das Ergebnis nach .PRE_BETA (oder .PRE_STABLE) kopiert werden:
 
-wenn alle signiert haben
-$ release-pre.sh beta  #oder stable
+    $ copy-to-pre.sh beta   #oder stable
 
+Nun ist ein manuelles Signieren notwendig (BETA und STABLE werden nicht automatisch signiert). 
+Nachdem alle benoetigten Personen geprueft und unterzeichnet haben, kann der Build veroeffentlicht werden.
+Dies geschieht durch Kopieren in den dafuer vorgesehen Ordner mithilfe dieses Skripts:
+
+    $ release-pre.sh beta  #oder stable
 
 ------------------------------------------
-Versionen (ffwp: gluon)
+### Versionen (ffwp: gluon)
 
 0.5.4: v2016.1.2
 + (Autoupdater) https wieder entfernen
