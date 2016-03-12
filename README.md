@@ -1,14 +1,32 @@
 site-ffwp
 =========
 
-Freifunk Westpfalz specific Gluon configuration
-
-Versionen:
-
-
-Versionen (ffwp: gluon)
+Freifunk Westpfalz - Gluon Konfiguration
 
 ------------------------------------------
+Build Schritte:
+
+
+$ start-build.sh
+    startet: pull-repos.sh
+    startet: make-release.sh
+
+$ make-manifest.sh beta   #oder stable
+
+$ copy-to-pre.sh beta   #oder stable
+
+manuelles Signieren manifest-Datei
+
+wenn alle signiert haben
+$ release-pre.sh beta  #oder stable
+
+
+------------------------------------------
+Versionen (ffwp: gluon)
+
+0.5.4: v2016.1.2
++ (Autoupdater) https wieder entfernen
++ (intern) Build-Skripte zum Veroeffentlichen
 
 0.5.3: v2016.1.2
 + Gluon 2016.1.2 
