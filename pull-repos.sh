@@ -61,7 +61,7 @@ touch ../gluon.hash.old
 
 #git fetch origin 'refs/tags/*:refs/tags/*' >> $LOGFILE 2>&1
 #git tag -l >> $LOGFILE 2>&1
-git checkout tags/v2016.1.2 >> $LOGFILE 2>&1
+git checkout tags/v2016.1.3 >> $LOGFILE 2>&1
 git pull >> $LOGFILE 2>&1
 
 GLUON_HASH=(`git log --pretty=format:'%H' -n 1`)

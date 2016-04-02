@@ -30,6 +30,10 @@ Dies geschieht durch Kopieren in den dafuer vorgesehen Ordner mithilfe dieses Sk
 ------------------------------------------
 ### Versionen (ffwp: gluon)
 
+0.5.5: v2016.1.3
++ Gluon 2016.1.3
++ (intern) make dirclean 1x vor dem Build Prozess ausfuehren  
+
 0.5.4: v2016.1.2
 + (Autoupdater) https wieder entfernen
 + (intern) Build-Skripte zum Veroeffentlichen
