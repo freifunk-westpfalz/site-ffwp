@@ -32,6 +32,11 @@ RESULT=0
 rm $LOGFILE
 date | tee -a $LOGFILE
 rm -r output/images
+
+echo -e "\n\n\nmake dirclean" >> $LOGFILE
+make dirclean | tee -a $LOGFILE
+echo -e "\n\n\n" >> $LOGFILE
+
 #for TARGET in  ar71xx-generic
 for TARGET in  ar71xx-generic ar71xx-nand mpc85xx-generic x86-generic x86-kvm_guest
 do
