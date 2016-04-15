@@ -119,6 +119,8 @@ Dies geschieht durch Kopieren in den dafuer vorgesehen Ordner mithilfe dieses Sk
 ------------------------------------------
 ### Liste der Beta-Builds
 
+0.5.5-160403-2131
+
 0.5.2-160304-0022
 
 0.4.0-151015-0115
@@ -151,6 +153,8 @@ Dies geschieht durch Kopieren in den dafuer vorgesehen Ordner mithilfe dieses Sk
 
 ------------------------------------------
 ### Liste der Stable-Builds
+
+0.5.5-160403-2131 (2016-04-15)
 
 0.4.0-151025-1431 (2015-10-25)
 
