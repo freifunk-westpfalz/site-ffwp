@@ -59,9 +59,12 @@ touch ../gluon.hash.old
 #git checkout master >> $LOGFILE 2>&1
 #git pull  >> $LOGFILE 2>&1
 
-#git fetch origin 'refs/tags/*:refs/tags/*' >> $LOGFILE 2>&1
+#get latest tags
+git fetch origin 'refs/tags/*:refs/tags/*' >> $LOGFILE 2>&1
 #git tag -l >> $LOGFILE 2>&1
-git checkout tags/v2016.1.3 >> $LOGFILE 2>&1
+LATEST_TAG=(`git tag -l |tail -1`)
+echo -e "pull latest tag: $LATEST_TAG"  >> $LOGFILE 2>&1
+git checkout tags/$LATEST_TAG >> $LOGFILE 2>&1
 git pull >> $LOGFILE 2>&1
 
 GLUON_HASH=(`git log --pretty=format:'%H' -n 1`)
