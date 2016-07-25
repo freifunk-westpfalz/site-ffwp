@@ -125,7 +125,7 @@ Dies geschieht durch Kopieren in den dafuer vorgesehen Ordner mithilfe dieses Sk
 ------------------------------------------
 ### Liste der Beta-Builds
 
-0.6.1-160601-2333 (2016-07-25)
+0.6.1-160601-2333 (2016-07-24)
 
 0.5.5-160403-2131
 
