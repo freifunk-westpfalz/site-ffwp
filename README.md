@@ -6,29 +6,35 @@ Freifunk Westpfalz - Gluon Konfiguration
 ------------------------------------------
 ### Build Schritte
 
+Alle hier genannten Befehle sind im Ordner "site" auszufuehren.
+
 Jede Nacht laeuft ein Erstell-Vorgang (via CRON), der folgendes startet; dabei wird automatisch auch signiert:
 
-    $ start-build.sh
+    $ ./start-build.sh
         #startet: pull-repos.sh
         #startet: make-release.sh
 
 Fuer BETA (oder STABLE) muss eine eigene MANIFEST-Datei erzeugt werden.
-Dies geschieht mit nachfolgendem Befehl bei Bedarf manuell:
+Dies sollte erst am Tag des Rollouts passieren, da sonst u.U. der Autoupdater direkt ausgefuehrt wird (weil der Wartezeitraum des Updates abgelaufen ist). Folgender Befehl ist manuell auszufuehren:
 
-    $ make-manifest.sh beta   #oder stable
+    $ ./make-manifest.sh beta   #oder stable
 
 Danach kann das Ergebnis nach .PRE_BETA (oder .PRE_STABLE) kopiert werden:
 
-    $ copy-to-pre.sh beta   #oder stable
+    $ ./copy-to-pre.sh beta   #oder stable
 
 Nun ist ein manuelles Signieren notwendig (BETA und STABLE werden nicht automatisch signiert). 
 Nachdem alle benoetigten Personen geprueft und unterzeichnet haben, kann der Build veroeffentlicht werden.
 Dies geschieht durch Kopieren in den dafuer vorgesehen Ordner mithilfe dieses Skripts:
 
-    $ release-pre.sh beta  #oder stable
+    $ ./release-pre.sh beta  #oder stable
 
 ------------------------------------------
 ### Versionen (ffwp: gluon)
+
+0.6.1: v2016.1.x
++ Gluon 2016.1.5-8-gdeac14e
++ (intern) Build-Prozess ging (kurzzeitig) nur ab debian jessi, deshalb auf v2016.1.x gewechselt
 
 0.5.5: v2016.1.3
 + Gluon 2016.1.3
@@ -118,6 +124,8 @@ Dies geschieht durch Kopieren in den dafuer vorgesehen Ordner mithilfe dieses Sk
 
 ------------------------------------------
 ### Liste der Beta-Builds
+
+0.6.1-160601-2333 (2016-07-25)
 
 0.5.5-160403-2131
 
