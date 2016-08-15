@@ -11,11 +11,18 @@ echo "Repositories aktualisieren..."
 
 date
 
-SITE_HASH=`cat ../../site.hash`
-SITE_HASH_OLD=`cat ../../site.hash.old`
-GLUON_HASH=`cat ../../gluon.hash`
-GLUON_HASH_OLD=`cat ../../gluon.hash.old`
+PATH_LOG=.ffwp 
+PATH_GLUON=../gluon
+FILE_SITE=$PATH_LOG/site.sha
+FILE_GLUON=$PATH_LOG/gluon.sha
+FILE_SITE_OLD=$PATH_LOG/site.old.sha
+FILE_GLUON_OLD=$PATH_LOG/gluon.old.sha
+FILE_LOG=$PATH_LOG/start-build.log
 
+SITE_HASH=`cat $FILE_SITE`
+SITE_HASH_OLD=`cat $FILE_SITE_OLD`
+GLUON_HASH=`cat $FILE_GLUON`
+GLUON_HASH_OLD=`cat $FILE_GLUON_OLD`
 NEED_BUILD=0
 
 echo "Site  $SITE_HASH_OLD -> $SITE_HASH"
@@ -44,9 +51,9 @@ if [ $NEED_BUILD -gt 0 ];then
   ./make-release.sh
 
   if [ $? -eq 0 ];then
-    echo $GLUON_HASH > ../../gluon.hash.old
-    echo $SITE_HASH > ../../site.hash.old
-    cp ../../start-build.log ../output/images/.start-build.txt
+    echo $GLUON_HASH > $FILE_GLUON_OLD
+    echo $SITE_HASH > $FILE_SITE_OLD
+    cp $FILE_LOG $PATH_GLUON/output/images/
   fi
 
 
