@@ -20,18 +20,22 @@ BRANCH=nightly
 #DEBUG=V\=s
 DEBUG=
 
+PATH_FFWP=../ffwp
+PATH_LOG=$PATH_LOG/log
+PATH_GLUON=../gluon
+
 cd ..
 if [ ! -d "site" ]; then
 	echo "This script must be called from within the site directory"
 	return
 fi
 
-LOGFILE=../build.log
+LOGFILE=$PATH_LOG/build.log
 RESULT=0
 
 rm $LOGFILE
 date | tee -a $LOGFILE
-rm -r output/images
+rm -r $PATH_GLUON/output/images
 
 echo -e "\n\n\nmake dirclean" >> $LOGFILE
 make dirclean | tee -a $LOGFILE
@@ -100,34 +104,34 @@ else
 
 	echo "Manifest creation complete, signing manifest" | tee -a $LOGFILE
 
-	echo -e "contrib/sign.sh ../ecdsa-key-secret output/images/sysupgrade/nightly.manifest" >> $LOGFILE
-	contrib/sign.sh ../ecdsa-key-secret output/images/sysupgrade/nightly.manifest >> $LOGFILE 2>&1
+	echo -e "$PATH_GLUON/contrib/sign.sh $PATH_FFWP/ecdsa.secret $PATH_GLUON/output/images/sysupgrade/nightly.manifest" >> $LOGFILE
+	$PATH_GLUON/contrib/sign.sh $PATH_FFWP/ecdsa.secret $PATH_GLUON/output/images/sysupgrade/nightly.manifest >> $LOGFILE 2>&1
 
 	if [[ "$BRANCH" == "beta" ]] || [[ "$BRANCH" == "stable" ]]
 	then
-		echo -e "contrib/sign.sh ../ecdsa-key-secret output/images/sysupgrade/beta.manifest" >> $LOGFILE
-		contrib/sign.sh ../ecdsa-key-secret output/images/sysupgrade/beta.manifest >> $LOGFILE 2>&1
+		echo -e "$PATH_GLUON/contrib/sign.sh $PATH_FFWP/ecdsa.secret $PATH_GLUON/output/images/sysupgrade/beta.manifest" >> $LOGFILE
+		$PATH_GLUON/contrib/sign.sh $PATH_FFWP/ecdsa.secret $PATH_GLUON/output/images/sysupgrade/beta.manifest >> $LOGFILE 2>&1
 	fi
 
 	if [[ "$BRANCH" == "stable" ]]
 	then
-		echo -e "contrib/sign.sh ../ecdsa-key-secret output/images/sysupgrade/stable.manifest" >> $LOGFILE
-		contrib/sign.sh ../ecdsa-key-secret output/images/sysupgrade/stable.manifest >> $LOGFILE 2>&1
+		echo -e "$PATH_GLUON/contrib/sign.sh $PATH_FFWP/ecdsa.secret $PATH_GLUON/output/images/sysupgrade/stable.manifest" >> $LOGFILE
+		$PATH_GLUON/contrib/sign.sh $PATH_FFWP/ecdsa.secret $PATH_GLUON/output/images/sysupgrade/stable.manifest >> $LOGFILE 2>&1
 	fi
 
 	echo -e "--- md5 erzeugen ---" >> $LOGFILE
-	cd output/images/factory
+	cd $PATH_GLUON/output/images/factory
 	md5sum gluon* > md5.txt
 
 	cd ../sysupgrade
 	md5sum gluon* > md5.txt
 
-	cd ../../../
+	cd $PATH_GLUON
 
 	date >> $LOGFILE
 	echo "Done :)         $RESULT error/s"| tee -a $LOGFILE
 
-	cp $LOGFILE output/images/.build.txt
+	cp $LOGFILE $PATH_GLUON/output/images/.build.txt
 fi
 
 cd site
