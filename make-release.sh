@@ -20,8 +20,8 @@ BRANCH=nightly
 #DEBUG=V\=s
 DEBUG=
 
-PATH_FFWP=../ffwp
-PATH_LOG=$PATH_LOG/log
+PATH_FFWP=../.ffwp
+PATH_LOG=$PATH_FFWP/log
 PATH_GLUON=../gluon
 
 cd ..
