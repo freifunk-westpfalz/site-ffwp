@@ -22,6 +22,11 @@ FILE_SITE_OLD=$PATH_LOG/site.old.sha
 FILE_GLUON_OLD=$PATH_LOG/gluon.old.sha
 FILE_LOG=$PATH_LOG/start-build.log
 
+touch $FILE_SITE
+touch $FILE_SITE_OLD
+touch $FILE_GLUON
+touch $FILE_GLUON_OLD
+
 echo "Repositories aktualisieren..."
 ./pull-repos.sh
 
