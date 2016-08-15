@@ -17,7 +17,13 @@ if [ ! -d "site" ]; then
         return
 fi
 
-LOGFILE=../pull.log
+PATH_FFWP=../.ffwp
+PATH_LOG=$PATH_FFWP/log
+LOGFILE=$PATH_LOG/pull.log
+FILE_SITE=$PATH_FFWP/site.sha
+FILE_SITE_OLD=$PATH_FFWP/site.old.sha
+FILE_GLUON=$PATH_FFWP/gluon.sha
+FILE_GLUON_OLD=$PATH_FFWP/gluon.old.sha
 
 rm $LOGFILE
 date > $LOGFILE
@@ -31,15 +37,15 @@ echo branch >> ../$LOGFILE
 git branch|grep \*  >> ../$LOGFILE 2>&1
 SITE_HASH=(`git log --pretty=format:'%H' -n 1`)
 echo $SITE_HASH >> ../$LOGFILE 2>&1
-#echo $SITE_HASH > ../../site.hash.old
-touch ../../site.hash.old
+#echo $SITE_HASH > ../$FILE_SITE_OLD
+touch ../$FILE_SITE_OLD
 
 git checkout master > ../$LOGFILE 2>&1
 git pull  > ../$LOGFILE 2>&1
 
 SITE_HASH=(`git log --pretty=format:'%H' -n 1`)
 echo $SITE_HASH >> ../$LOGFILE 2>&1
-echo $SITE_HASH > ../../site.hash
+echo $SITE_HASH > ../$FILE_SITE
 
 
 #-------------------------------------------------------------------------------------
@@ -53,8 +59,8 @@ echo branch  >> $LOGFILE
 git branch|grep \*  >> $LOGFILE 2>&1
 GLUON_HASH=(`git log --pretty=format:'%H' -n 1`)
 echo $GLUON_HASH  >> $LOGFILE 2>&1
-#echo $GLUON_HASH  > ../gluon.hash.old
-touch ../gluon.hash.old
+#echo $GLUON_HASH  > $GLUON_HASH
+touch $GLUON_HASH_OLD
 
 #git checkout master >> $LOGFILE 2>&1
 #git pull  >> $LOGFILE 2>&1
@@ -69,8 +75,6 @@ git pull >> $LOGFILE 2>&1
 
 GLUON_HASH=(`git log --pretty=format:'%H' -n 1`)
 echo $GLUON_HASH  >> $LOGFILE 2>&1
-echo $GLUON_HASH  > ../gluon.hash
-
-cd site
+echo $GLUON_HASH  > $GLUON_HASH
 
 exit 0
