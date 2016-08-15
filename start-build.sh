@@ -6,24 +6,34 @@
 ######################################################################################
 
 date
-echo "Repositories aktualisieren..."
-./pull-repos.sh
 
-date
+cd ..
+if [ ! -d "site" ]; then
+	echo "This script must be called from within the site directory"
+	return
+fi
+cd site 
 
-PATH_LOG=.ffwp 
-PATH_GLUON=../gluon
+PATH_LOG=../../.ffwp 
+PATH_GLUON=../../gluon
 FILE_SITE=$PATH_LOG/site.sha
 FILE_GLUON=$PATH_LOG/gluon.sha
 FILE_SITE_OLD=$PATH_LOG/site.old.sha
 FILE_GLUON_OLD=$PATH_LOG/gluon.old.sha
 FILE_LOG=$PATH_LOG/start-build.log
 
+echo "Repositories aktualisieren..."
+./pull-repos.sh
+
+date
+
 SITE_HASH=`cat $FILE_SITE`
 SITE_HASH_OLD=`cat $FILE_SITE_OLD`
 GLUON_HASH=`cat $FILE_GLUON`
 GLUON_HASH_OLD=`cat $FILE_GLUON_OLD`
 NEED_BUILD=0
+
+
 
 echo "Site  $SITE_HASH_OLD -> $SITE_HASH"
 echo "Gluon $GLUON_HASH_OLD -> $GLUON_HASH"
