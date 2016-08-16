@@ -127,7 +127,8 @@ else
 	cd ../sysupgrade
 	md5sum gluon* > md5.txt
 
-	cd $PATH_GLUON
+	#back to gluon path
+	cd ../../..
 
 	date >> $LOGFILE
 	echo "Done :)         $RESULT error/s"| tee -a $LOGFILE
