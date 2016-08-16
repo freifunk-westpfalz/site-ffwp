@@ -23,6 +23,7 @@ DEBUG=
 PATH_FFWP=../.ffwp
 PATH_LOG=$PATH_FFWP/log
 PATH_GLUON=../gluon
+CPU_CNT=`cat /proc/cpuinfo|grep ^processor|wc -l`
 
 cd ..
 if [ ! -d "site" ]; then
@@ -52,8 +53,8 @@ do
 		make GLUON_TARGET=$TARGET GLUON_BRANCH=stable update >> $LOGFILE 2>&1
 		echo -e "\n\n\nmake GLUON_TARGET=$TARGET GLUON_BRANCH=stable clean" >> $LOGFILE
 		make GLUON_TARGET=$TARGET GLUON_BRANCH=stable clean >> $LOGFILE 2>&1
-		echo -e "\n\n\nmake $DEBUG GLUON_TARGET=$TARGET GLUON_BRANCH=stable -j7" >> $LOGFILE
-		make $DEBUG GLUON_TARGET=$TARGET GLUON_BRANCH=stable -j7 >> $LOGFILE 2>&1
+		echo -e "\n\n\nmake $DEBUG GLUON_TARGET=$TARGET GLUON_BRANCH=stable -j$CPU_CNT" >> $LOGFILE
+		make $DEBUG GLUON_TARGET=$TARGET GLUON_BRANCH=stable -j$CPU_CNT >> $LOGFILE 2>&1
 
 		if [ $? -ne 0 ]; then
 			RESULT=$(($RESULT + 1))
@@ -66,8 +67,8 @@ do
 		make GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION update >> $LOGFILE 2>&1
 		echo -e "\n\n\nmake GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION clean" >> $LOGFILE
 		make GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION clean >> $LOGFILE 2>&1
-		echo -e "\n\n\nmake $DEBUG GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION -j7" >> $LOGFILE
-		make $DEBUG GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION -j7 >> $LOGFILE 2>&1
+		echo -e "\n\n\nmake $DEBUG GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION -j$CPU_CNT" >> $LOGFILE
+		make $DEBUG GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION -j$CPU_CNT >> $LOGFILE 2>&1
 
 		if [ $? -ne 0 ]; then
 			RESULT=$(($RESULT + 1))
