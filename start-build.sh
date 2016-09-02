@@ -10,17 +10,17 @@ date
 cd ..
 if [ ! -d "site" ]; then
 	echo "This script must be called from within the site directory"
-	return
+	exit 1
 fi
-cd site 
+cd site
 
-PATH_LOG=../../.ffwp 
-PATH_GLUON=../../gluon
+PATH_GLUON=/home/freifunk/gluon
+PATH_LOG=/home/freifunk/.ffwp/log
 FILE_SITE=$PATH_LOG/site.sha
 FILE_GLUON=$PATH_LOG/gluon.sha
 FILE_SITE_OLD=$PATH_LOG/site.old.sha
 FILE_GLUON_OLD=$PATH_LOG/gluon.old.sha
-FILE_LOG=$PATH_LOG/start-build.log
+FILE_LOG=$PATH_LOG/nightly_build.log
 
 touch $FILE_SITE
 touch $FILE_SITE_OLD
@@ -68,7 +68,7 @@ if [ $NEED_BUILD -gt 0 ];then
   if [ $? -eq 0 ];then
     echo $GLUON_HASH > $FILE_GLUON_OLD
     echo $SITE_HASH > $FILE_SITE_OLD
-    cp $FILE_LOG $PATH_GLUON/output/images/
+    cp $FILE_LOG $PATH_GLUON/output/images/.build_overview.txt
   fi
 
 

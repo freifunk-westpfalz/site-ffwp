@@ -8,7 +8,7 @@
 ## This script will compile Gluon for all architectures, create the
 ## manifest and sign it. For that, you must have clone gluon and have a
 ## valid site config. Additionally, the signing key must be present in
-## ../../ecdsa-key-secret.
+## $PATH_FFWP/autobuilder.secret.
 ## Call from site directory with the version and branch variables
 ## properly configured in this script.
 
@@ -20,9 +20,9 @@ BRANCH=nightly
 #DEBUG=V\=s
 DEBUG=
 
-PATH_FFWP=../.ffwp
+PATH_GLUON=/home/freifunk/gluon
+PATH_FFWP=/home/freifunk/.ffwp
 PATH_LOG=$PATH_FFWP/log
-PATH_GLUON=../gluon
 CPU_CNT=`cat /proc/cpuinfo|grep ^processor|wc -l`
 
 cd ..
@@ -80,7 +80,7 @@ done
 
 if [ $RESULT -ne 0 ]; then
 	echo "Compilation FAILED, see build.log         $RESULT error/s" | tee -a $LOGFILE
-	cd site
+	cd $PATH_GLUON/site
 	exit 1
 else
 	echo "Compilation complete, creating manifest(s)" | tee -a $LOGFILE
@@ -105,26 +105,26 @@ else
 
 	echo "Manifest creation complete, signing manifest" | tee -a $LOGFILE
 
-	echo -e "$PATH_GLUON/contrib/sign.sh $PATH_FFWP/ecdsa.secret $PATH_GLUON/output/images/sysupgrade/nightly.manifest" >> $LOGFILE
-	$PATH_GLUON/contrib/sign.sh $PATH_FFWP/ecdsa.secret $PATH_GLUON/output/images/sysupgrade/nightly.manifest >> $LOGFILE 2>&1
+	echo -e "$PATH_GLUON/contrib/sign.sh $PATH_FFWP/autobuilder.secret $PATH_GLUON/output/images/sysupgrade/nightly.manifest" >> $LOGFILE
+	$PATH_GLUON/contrib/sign.sh $PATH_FFWP/autobuilder.secret $PATH_GLUON/output/images/sysupgrade/nightly.manifest >> $LOGFILE 2>&1
 
 	if [[ "$BRANCH" == "beta" ]] || [[ "$BRANCH" == "stable" ]]
 	then
-		echo -e "$PATH_GLUON/contrib/sign.sh $PATH_FFWP/ecdsa.secret $PATH_GLUON/output/images/sysupgrade/beta.manifest" >> $LOGFILE
-		$PATH_GLUON/contrib/sign.sh $PATH_FFWP/ecdsa.secret $PATH_GLUON/output/images/sysupgrade/beta.manifest >> $LOGFILE 2>&1
+		echo -e "$PATH_GLUON/contrib/sign.sh $PATH_FFWP/autobuilder.secret $PATH_GLUON/output/images/sysupgrade/beta.manifest" >> $LOGFILE
+		$PATH_GLUON/contrib/sign.sh $PATH_FFWP/autobuilder.secret $PATH_GLUON/output/images/sysupgrade/beta.manifest >> $LOGFILE 2>&1
 	fi
 
 	if [[ "$BRANCH" == "stable" ]]
 	then
-		echo -e "$PATH_GLUON/contrib/sign.sh $PATH_FFWP/ecdsa.secret $PATH_GLUON/output/images/sysupgrade/stable.manifest" >> $LOGFILE
-		$PATH_GLUON/contrib/sign.sh $PATH_FFWP/ecdsa.secret $PATH_GLUON/output/images/sysupgrade/stable.manifest >> $LOGFILE 2>&1
+		echo -e "$PATH_GLUON/contrib/sign.sh $PATH_FFWP/autobuilder.secret $PATH_GLUON/output/images/sysupgrade/stable.manifest" >> $LOGFILE
+		$PATH_GLUON/contrib/sign.sh $PATH_FFWP/autobuilder.secret $PATH_GLUON/output/images/sysupgrade/stable.manifest >> $LOGFILE 2>&1
 	fi
 
 	echo -e "--- md5 erzeugen ---" >> $LOGFILE
 	cd $PATH_GLUON/output/images/factory
 	md5sum gluon* > md5.txt
 
-	cd ../sysupgrade
+	cd $PATH_GLUON/output/images/sysupgrade
 	md5sum gluon* > md5.txt
 
 	cd $PATH_GLUON
@@ -135,5 +135,5 @@ else
 	cp $LOGFILE $PATH_GLUON/output/images/.build.txt
 fi
 
-cd site
+cd  $PATH_GLUON/site
 exit 0

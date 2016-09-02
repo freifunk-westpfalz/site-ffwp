@@ -17,7 +17,7 @@ if [ ! -d "site" ]; then
         return
 fi
 
-PATH_FFWP=../.ffwp
+PATH_FFWP=/home/freifunk/.ffwp
 PATH_LOG=$PATH_FFWP/log
 LOGFILE=$PATH_LOG/pull.log
 FILE_SITE=$PATH_FFWP/site.sha
@@ -31,21 +31,21 @@ date > $LOGFILE
 #-------------------------------------------------------------------------------------
 # refresh site directory
 cd site
-echo -e "--- site directory ---"  >> ../$LOGFILE
-git remote -v  >> ../$LOGFILE 2>&1
-echo branch >> ../$LOGFILE
-git branch|grep \*  >> ../$LOGFILE 2>&1
+echo -e "--- site directory ---"  >> $LOGFILE
+git remote -v  >> $LOGFILE 2>&1
+echo branch >> $LOGFILE
+git branch|grep \*  >> $LOGFILE 2>&1
 SITE_HASH=(`git log --pretty=format:'%H' -n 1`)
-echo $SITE_HASH >> ../$LOGFILE 2>&1
-#echo $SITE_HASH > ../$FILE_SITE_OLD
-touch ../$FILE_SITE_OLD
+echo $SITE_HASH >> $LOGFILE 2>&1
+#echo $SITE_HASH > $FILE_SITE_OLD
+touch $FILE_SITE_OLD
 
-git checkout master > ../$LOGFILE 2>&1
-git pull  > ../$LOGFILE 2>&1
+git checkout master > $LOGFILE 2>&1
+git pull  > $LOGFILE 2>&1
 
 SITE_HASH=(`git log --pretty=format:'%H' -n 1`)
-echo $SITE_HASH >> ../$LOGFILE 2>&1
-echo $SITE_HASH > ../$FILE_SITE
+echo $SITE_HASH >> $LOGFILE 2>&1
+echo $SITE_HASH > $FILE_SITE
 
 
 #-------------------------------------------------------------------------------------
@@ -59,8 +59,8 @@ echo branch  >> $LOGFILE
 git branch|grep \*  >> $LOGFILE 2>&1
 GLUON_HASH=(`git log --pretty=format:'%H' -n 1`)
 echo $GLUON_HASH  >> $LOGFILE 2>&1
-#echo $GLUON_HASH  > $GLUON_HASH
-touch $GLUON_HASH_OLD
+#echo $GLUON_HASH  > $FILE_GLUON_OLD
+touch $FILE_GLUON_OLD
 
 #git checkout master >> $LOGFILE 2>&1
 #git pull  >> $LOGFILE 2>&1
@@ -75,6 +75,6 @@ git pull >> $LOGFILE 2>&1
 
 GLUON_HASH=(`git log --pretty=format:'%H' -n 1`)
 echo $GLUON_HASH  >> $LOGFILE 2>&1
-echo $GLUON_HASH  > $GLUON_HASH
+echo $GLUON_HASH  > $FILE_GLUON
 
 exit 0
