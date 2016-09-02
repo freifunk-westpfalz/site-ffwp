@@ -127,6 +127,7 @@ else
 	cd $PATH_GLUON/output/images/sysupgrade
 	md5sum gluon* > md5.txt
 
+	#back to gluon path
 	cd $PATH_GLUON
 
 	date >> $LOGFILE
