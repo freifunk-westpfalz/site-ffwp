@@ -14,7 +14,7 @@
 cd ..
 if [ ! -d "site" ]; then
         echo "This script must be called from within the site directory"
-        return
+        exit 1
 fi
 
 PATH_FFWP=/home/freifunk/.ffwp
