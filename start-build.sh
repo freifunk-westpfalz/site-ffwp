@@ -15,11 +15,12 @@ fi
 cd site
 
 PATH_GLUON=/home/freifunk/gluon
-PATH_LOG=/home/freifunk/.ffwp/log
-FILE_SITE=$PATH_LOG/site.sha
-FILE_GLUON=$PATH_LOG/gluon.sha
-FILE_SITE_OLD=$PATH_LOG/site.old.sha
-FILE_GLUON_OLD=$PATH_LOG/gluon.old.sha
+PATH_FFWP=/home/freifunk/.ffwp
+PATH_LOG=$PATH_FFWP/log/fw
+FILE_SITE=$PATH_FFWP/fw/site.sha
+FILE_GLUON=$PATH_FFWP/fw/gluon.sha
+FILE_SITE_OLD=$PATH_FFWP/fw/site.old.sha
+FILE_GLUON_OLD=$PATH_FFWP/fw/gluon.old.sha
 FILE_LOG=$PATH_LOG/nightly_build.log
 
 if [ ! -f "$FILE_SITE_OLD" ]; then

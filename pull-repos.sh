@@ -18,12 +18,12 @@ if [ ! -d "site" ]; then
 fi
 
 PATH_FFWP=/home/freifunk/.ffwp
-PATH_LOG=$PATH_FFWP/log
+PATH_LOG=$PATH_FFWP/log/fw
 LOGFILE=$PATH_LOG/pull.log
-FILE_SITE=$PATH_FFWP/site.sha
-FILE_SITE_OLD=$PATH_FFWP/site.old.sha
-FILE_GLUON=$PATH_FFWP/gluon.sha
-FILE_GLUON_OLD=$PATH_FFWP/gluon.old.sha
+FILE_SITE=$PATH_FFWP/fw/site.sha
+FILE_SITE_OLD=$PATH_FFWP/fw/site.old.sha
+FILE_GLUON=$PATH_FFWP/fw/gluon.sha
+FILE_GLUON_OLD=$PATH_FFWP/fw/gluon.old.sha
 
 rm $LOGFILE
 date > $LOGFILE
