@@ -18,7 +18,7 @@ if [ ! -d "site" ]; then
 fi
 
 PATH_FFWP=/home/freifunk/.ffwp
-PATH_LOG=$PATH_FFWP/log/fw
+PATH_LOG=$PATH_FFWP/fw/log
 LOGFILE=$PATH_LOG/pull.log
 FILE_SITE=$PATH_FFWP/fw/site.sha
 FILE_SITE_OLD=$PATH_FFWP/fw/site.old.sha
