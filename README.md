@@ -32,6 +32,11 @@ Dies geschieht durch Kopieren in den dafuer vorgesehen Ordner mithilfe dieses Sk
 ------------------------------------------
 ### Versionen (ffwp: gluon)
 
+0.6.2: v2016.1.5
++ Gluon 2016.1.5
++ (intern) zurueckstellen auf offizielles Release v2016.1.5
++ (intern) Umbau auf neue Build-VM (jessi)
+
 0.6.1: v2016.1.x
 + Gluon 2016.1.5-8-gdeac14e
 + (intern) Build-Prozess ging (kurzzeitig) nur ab debian jessi, deshalb auf v2016.1.x gewechselt
