@@ -60,8 +60,6 @@ do
 		if [ $? -ne 0 ]; then
 			RESULT=$(($RESULT + 1))
 		fi
-
-		echo -e "\n\n\n============================================================\n\n" >> $LOGFILE
 	else
 		echo "Starting work on target $TARGET" | tee -a $LOGFILE
 		echo -e "\n\n\nmake GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION update" >> $LOGFILE
@@ -74,9 +72,9 @@ do
 		if [ $? -ne 0 ]; then
 			RESULT=$(($RESULT + 1))
 		fi
-
-		echo -e "\n\n\n============================================================\n\n" >> $LOGFILE
 	fi
+	echo "   Overall  error/s: $RESULT" | tee -a $LOGFILE
+	echo -e "\n\n\n============================================================\n\n" >> $LOGFILE	
 done
 
 if [ $RESULT -ne 0 ]; then
