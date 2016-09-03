@@ -16,7 +16,7 @@ cd site
 
 PATH_GLUON=/home/freifunk/gluon
 PATH_FFWP=/home/freifunk/.ffwp
-PATH_LOG=$PATH_FFWP/log/fw
+PATH_LOG=$PATH_FFWP/fw/log
 FILE_SITE=$PATH_FFWP/fw/site.sha
 FILE_GLUON=$PATH_FFWP/fw/gluon.sha
 FILE_SITE_OLD=$PATH_FFWP/fw/site.old.sha
