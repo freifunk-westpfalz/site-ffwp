@@ -86,12 +86,14 @@ else
 
 	echo -e "make GLUON_BRANCH=nightly manifest" >> $LOGFILE
 	make GLUON_BRANCH=nightly manifest >> $LOGFILE 2>&1
+	cp nightly.manifest .template.manifest
 	echo -e "\n\n\n============================================================\n\n" >> $LOGFILE
 
 	if [[ "$BRANCH" == "beta" ]] || [[ "$BRANCH" == "stable" ]]
 	then
 		echo -e "make GLUON_BRANCH=beta manifest" >> $LOGFILE
 		make GLUON_BRANCH=beta manifest >> $LOGFILE 2>&1
+		cp beta.manifest .template.manifest
 		echo -e "\n\n\n============================================================\n\n" >> $LOGFILE
 	fi
 

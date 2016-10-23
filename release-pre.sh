@@ -22,30 +22,44 @@ if [ ! -d "site" ]; then
         exit 1
 fi
 
-LOGFILE=../release-pre-$BRANCH.log
+LOGPATH=/home/freifunk/.ffwp/fw/log
+LOGFILE=$LOGPATH/release-pre-$BRANCH.log
+WWWROOT=/srv/firmware
 RESULT=0
+
+if [[ $BRANCH == "beta" ]];then
+        SOURCEPATH=$WWWROOT/.pre_$BRANCH
+else
+        if [[ $BRANCH == "stable" ]];then
+	        SOURCEPATH=$WWWROOT/.pre_$BRANCH
+        else
+                echo "   Error: wrong parameter, use either \"beta\" or \"stable\"!"
+                exit 1
+        fi
+fi
 
 rm -f $LOGFILE
 date | tee -a $LOGFILE
 
 echo "   Delete old /$BRANCH files" | tee -a $LOGFILE
-rm -rf ../img/$BRANCH/factory
-rm -rf ../img/$BRANCH/sysupgrade
-rm -f ../img/$BRANCH/.build.txt
-rm -f ../img/$BRANCH/.start-build.txt
+rm -rf $WWWROOT/$BRANCH/factory
+rm -rf $WWWROOT/$BRANCH/sysupgrade
+rm -f $WWWROOT/$BRANCH/.build.txt
+rm -f $WWWROOT/$BRANCH/.start-build.txt
+rm -f $WWWROOT/$BRANCH/.build_overview.txt
 
-echo "   Copy ../img/.pre_$BRANCH to /$BRANCH" | tee -a $LOGFILE
-cp -R ../img/.pre_$BRANCH/factory ../img/$BRANCH/
-cp -R ../img/.pre_$BRANCH/sysupgrade ../img/$BRANCH/
-cp ../img/.pre_$BRANCH/.build.txt ../img/$BRANCH/
-cp ../img/.pre_$BRANCH/.start-build.txt ../img/$BRANCH/
+echo "   Copy $WWWROOT/.pre_$BRANCH to /$BRANCH" | tee -a $LOGFILE
+cp -R $WWWROOT/.pre_$BRANCH/factory $WWWROOT/$BRANCH/
+cp -R $WWWROOT/.pre_$BRANCH/sysupgrade $WWWROOT/$BRANCH/
+cp $WWWROOT/.pre_$BRANCH/.build.txt $WWWROOT/$BRANCH/
+cp $WWWROOT/.pre_$BRANCH/.build_overview.txt $WWWROOT/$BRANCH/
 
-echo "   Change group to ffadm" | tee -a $LOGFILE
-chown -R :ffadm ../img/$BRANCH
+echo "   Change user:group to freifunk:freifunk" | tee -a $LOGFILE
+chown -R freifunk:freifunk $WWWROOT/$BRANCH
 echo "   Set file attributes to 'group writable'" | tee -a $LOGFILE
-chmod -R g+w ../img/$BRANCH
+chmod -R 755 $WWWROOT/$BRANCH
 
-ls -la ../img/$BRANCH
+ls -la $WWWROOT/$BRANCH
 
 date | tee -a $LOGFILE
 echo "Done :)         $RESULT error/s"| tee -a $LOGFILE

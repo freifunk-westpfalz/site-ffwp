@@ -17,6 +17,7 @@ if [ ! -d "site" ]; then
 fi
 
 LOGFILE=../make-manifest-$BRANCH.log
+WWWROOT=/srv/firmware
 RESULT=0
 
 rm -f $LOGFILE
@@ -28,15 +29,27 @@ date | tee -a $LOGFILE
 
 	if [[ "$BRANCH" == "beta" ]]
 	then
-		echo -e "make GLUON_BRANCH=beta manifest" >> $LOGFILE
-		make GLUON_BRANCH=beta manifest >> $LOGFILE 2>&1
+		#echo -e "make GLUON_BRANCH=beta manifest" >> $LOGFILE
+		#make GLUON_BRANCH=beta manifest >> $LOGFILE 2>&1
+
+		echo -e "create $BRANCH.manifest" >> $LOGFILE
+		echo BRANCH=stable > $WWWROOT/.pre_$BRANCH/sysupgrade/$BRANCH.manifest
+		date +DATE=%F\ %T%:z >> $WWWROOT/.pre_$BRANCH/sysupgrade/$BRANCH.manifest
+		awk '{if ((NR > 2)) print $0}' $WWWROOT/.pre_$BRANCH/sysupgrade/.template.manifest >> $WWWROOT/.pre_$BRANCH/sysupgrade/$BRANCH.manifest
+
 		echo -e "\n\n\n============================================================\n\n" >> $LOGFILE
 	fi
 
 	if [[ "$BRANCH" == "stable" ]]
 	then
-		echo -e "make GLUON_BRANCH=stable manifest" >> $LOGFILE
-		make GLUON_BRANCH=stable manifest >> $LOGFILE 2>&1
+		#echo -e "make GLUON_BRANCH=stable manifest" >> $LOGFILE
+		#make GLUON_BRANCH=stable manifest >> $LOGFILE 2>&1
+
+		echo -e "create $BRANCH.manifest" >> $LOGFILE
+		echo BRANCH=stable > $WWWROOT/.pre_$BRANCH/sysupgrade/$BRANCH.manifest
+		date +DATE=%F\ %T%:z >> $WWWROOT/.pre_$BRANCH/sysupgrade/$BRANCH.manifest
+		awk '{if ((NR > 2)) print $0}' $WWWROOT/.pre_$BRANCH/sysupgrade/.template.manifest >> $WWWROOT/.pre_$BRANCH/sysupgrade/$BRANCH.manifest
+
 		echo -e "\n\n\n============================================================\n\n" >> $LOGFILE
 	fi
 
@@ -65,7 +78,7 @@ date | tee -a $LOGFILE
 	#cd ../sysupgrade
 	#md5sum gluon* > md5.txt
 
-	cd ../../../
+	#cd ../../../
 
 	date >> $LOGFILE
 	echo "Done :)         $RESULT error/s"| tee -a $LOGFILE
