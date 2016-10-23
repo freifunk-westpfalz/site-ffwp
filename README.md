@@ -32,6 +32,9 @@ Dies geschieht durch Kopieren in den dafuer vorgesehen Ordner mithilfe dieses Sk
 ------------------------------------------
 ### Versionen (ffwp: gluon)
 
+0.7.1: v2016.2
++ Gluon 2016.2
+
 0.6.2: v2016.1.5
 + Gluon 2016.1.5
 + (intern) zurueckstellen auf offizielles Release v2016.1.5
@@ -166,6 +169,8 @@ Dies geschieht durch Kopieren in den dafuer vorgesehen Ordner mithilfe dieses Sk
 
 ------------------------------------------
 ### Liste der Stable-Builds
+
+0.6.1-160601-2333 (2016-10-22)
 
 0.5.5-160403-2131 (2016-04-15)
 
