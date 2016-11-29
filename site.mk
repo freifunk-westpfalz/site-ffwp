@@ -43,7 +43,8 @@ GLUON_SITE_PACKAGES += \
         kmod-sky2 \
         kmod-r8169 \
         kmod-forcedeth \
-        kmod-8139too
+        kmod-8139too\
+        usbutils
 endif
 
 ##	DEFAULT_GLUON_RELEASE
