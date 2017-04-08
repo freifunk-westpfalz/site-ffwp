@@ -40,8 +40,8 @@ echo $SITE_HASH >> $LOGFILE 2>&1
 #echo $SITE_HASH > $FILE_SITE_OLD
 touch $FILE_SITE_OLD
 
-#####git checkout master > $LOGFILE 2>&1
-#####git pull  > $LOGFILE 2>&1
+git checkout master > $LOGFILE 2>&1
+git pull  > $LOGFILE 2>&1
 
 SITE_HASH=(`git log --pretty=format:'%H' -n 1`)
 echo $SITE_HASH >> $LOGFILE 2>&1
