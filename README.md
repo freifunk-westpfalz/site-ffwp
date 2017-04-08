@@ -14,20 +14,30 @@ Jede Nacht laeuft ein Erstell-Vorgang (via CRON), der folgendes startet; dabei w
         #startet: pull-repos.sh
         #startet: make-release.sh
 
-Fuer BETA (oder STABLE) muss eine eigene MANIFEST-Datei erzeugt werden.
+Eine neue NIGHTLY wird nur erstellt, wenn es entweder einen neuen GLUON Version (Tag) gibt oder wenn sich etwas im SITE Repository geaendert hat.
+
+Will man ein BETA- (oder STABLE-) Release vorbereiten, so ist die aktuelle NIGHTLY (oder BETA) nach .PRE_BETA (oder .PRE_STABLE) zu kopieren.
+Dies geschieht mit:
+
+    $ ./copy-to-pre.sh beta   #oder stable
+
+Fuer BETA (oder STABLE) muss danach eine eigene MANIFEST-Datei erzeugt werden.
 Dies sollte erst am Tag des Rollouts passieren, da sonst u.U. der Autoupdater direkt ausgefuehrt wird (weil der Wartezeitraum des Updates abgelaufen ist). Folgender Befehl ist manuell auszufuehren:
 
     $ ./make-manifest.sh beta   #oder stable
 
-Danach kann das Ergebnis nach .PRE_BETA (oder .PRE_STABLE) kopiert werden:
-
-    $ ./copy-to-pre.sh beta   #oder stable
 
 Nun ist ein manuelles Signieren notwendig (BETA und STABLE werden nicht automatisch signiert). 
 Nachdem alle benoetigten Personen geprueft und unterzeichnet haben, kann der Build veroeffentlicht werden.
 Dies geschieht durch Kopieren in den dafuer vorgesehen Ordner mithilfe dieses Skripts:
 
     $ ./release-pre.sh beta  #oder stable
+
+Im Anschluss der Veroeffentlichung bitte 
+- die Firmware-Dateien zusaetzlich manuell ins Versionsarchiv kopieren (mit einem neuen Ordner gemaess Branch und Version) 
+- die Versionsnummer in site.mk hochzaehlen
+- diese Datei hier anpassen
+
 
 ------------------------------------------
 ### Versionen (ffwp: gluon)
