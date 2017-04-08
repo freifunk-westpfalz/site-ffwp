@@ -33,7 +33,7 @@ date | tee -a $LOGFILE
 		#make GLUON_BRANCH=beta manifest >> $LOGFILE 2>&1
 
 		echo -e "create $BRANCH.manifest" >> $LOGFILE
-		echo BRANCH=stable > $WWWROOT/.pre_$BRANCH/sysupgrade/$BRANCH.manifest
+		echo BRANCH=beta > $WWWROOT/.pre_$BRANCH/sysupgrade/$BRANCH.manifest
 		date +DATE=%F\ %T%:z >> $WWWROOT/.pre_$BRANCH/sysupgrade/$BRANCH.manifest
 		awk '{if ((NR > 2)) print $0}' $WWWROOT/.pre_$BRANCH/sysupgrade/.template.manifest >> $WWWROOT/.pre_$BRANCH/sysupgrade/$BRANCH.manifest
 

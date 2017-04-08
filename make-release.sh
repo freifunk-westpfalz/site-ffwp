@@ -74,7 +74,7 @@ do
 		fi
 	fi
 	echo "   Overall  error/s: $RESULT" | tee -a $LOGFILE
-	echo -e "\n\n\n============================================================\n\n" >> $LOGFILE	
+	echo -e "\n\n\n============================================================\n\n" >> $LOGFILE
 done
 
 if [ $RESULT -ne 0 ]; then
