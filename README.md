@@ -32,6 +32,12 @@ Dies geschieht durch Kopieren in den dafuer vorgesehen Ordner mithilfe dieses Sk
 ------------------------------------------
 ### Versionen (ffwp: gluon)
 
+0.7.4: v2016.2.4
++ Gluon 2016.2.4
+
+0.7.3: v2016.2.2
++ Gluon 2016.2.2 (?)
+
 0.7.2: v2016.2.1
 + Gluon 2016.2.1
 
@@ -136,6 +142,10 @@ Dies geschieht durch Kopieren in den dafuer vorgesehen Ordner mithilfe dieses Sk
 ------------------------------------------
 ### Liste der Beta-Builds
 
+0.7.4-170315-0032
+
+0.7.3-170107-2300
+
 0.6.1-160601-2333 (2016-07-24)
 
 0.5.5-160403-2131
@@ -172,6 +182,8 @@ Dies geschieht durch Kopieren in den dafuer vorgesehen Ordner mithilfe dieses Sk
 
 ------------------------------------------
 ### Liste der Stable-Builds
+
+0.7.4-170315-0032 (2017-04-08)
 
 0.6.1-160601-2333 (2016-10-22)
 
