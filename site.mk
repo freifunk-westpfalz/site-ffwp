@@ -29,7 +29,10 @@ GLUON_SITE_PACKAGES := \
 	gluon-status-page \
 	haveged \
 	iptables \
-	iwinfo
+	iwinfo\
+	ffffm-button-bind \
+	tecff-ath9k-broken-wifi-workaround \
+	tecff-respondd-watchdog
 
 # add addition network drivers and usb stuff only to targes where disk space does not matter.
 ifeq ($(GLUON_TARGET),x86-generic)
@@ -44,7 +47,8 @@ GLUON_SITE_PACKAGES += \
         kmod-r8169 \
         kmod-forcedeth \
         kmod-8139too\
-        usbutils
+        usbutils \
+        tecff-aptimeclock
 endif
 
 ##	DEFAULT_GLUON_RELEASE
@@ -53,7 +57,7 @@ endif
 #			opkg compare-versions "$1" '>>' "$2"
 #		to decide if a version is newer or not.
 
-DEFAULT_GLUON_RELEASE := 0.8.0-$(shell date '+%y%m%d-%H%M')
+DEFAULT_GLUON_RELEASE := 0.8.1-$(shell date '+%y%m%d-%H%M')
 
 
 ##	GLUON_RELEASE

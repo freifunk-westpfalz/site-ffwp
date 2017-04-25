@@ -1,0 +1,5 @@
+GLUON_SITE_FEEDS='ffwp'
+
+PACKAGES_FFWP_REPO=https://github.com/freifunk-westpfalz/packages-ffwp.git
+PACKAGES_FFWP_BRANCH=master
+PACKAGES_FFWP_COMMIT=8d773a4ce85ce952e7cad1ad1a539439b3c7fda3
