@@ -29,7 +29,7 @@ GLUON_SITE_PACKAGES := \
 	gluon-status-page \
 	haveged \
 	iptables \
-	iwinfo\
+	iwinfo \
 	ffffm-button-bind \
 	tecff-ath9k-broken-wifi-workaround \
 	tecff-respondd-watchdog
@@ -46,9 +46,8 @@ GLUON_SITE_PACKAGES += \
         kmod-sky2 \
         kmod-r8169 \
         kmod-forcedeth \
-        kmod-8139too\
-        usbutils \
-        tecff-aptimeclock
+        kmod-8139too \
+        usbutils 
 endif
 
 ##	DEFAULT_GLUON_RELEASE
