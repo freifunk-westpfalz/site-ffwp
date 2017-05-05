@@ -25,6 +25,7 @@ PATH_FFWP=/home/freifunk/.ffwp
 PATH_LOG=$PATH_FFWP/fw/log
 FILE_SECRET=$PATH_FFWP/fw/autobuilder.secret
 CPU_CNT=`cat /proc/cpuinfo|grep ^processor|wc -l`
+CPU_CNT=$(($CPU_CNT-1))
 
 cd ..
 if [ ! -d "site" ]; then
