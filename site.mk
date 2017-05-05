@@ -30,6 +30,7 @@ GLUON_SITE_PACKAGES := \
 	iptables \
 	iwinfo \
 	ffffm-button-bind \
+	ffrn-lowmem-patches \
 	tecff-ath9k-broken-wifi-workaround \
 	tecff-respondd-watchdog
 
