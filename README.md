@@ -44,16 +44,16 @@ Im Anschluss der Veroeffentlichung bitte
 
 0.8.1: v2016.2.5.x
 + Gluon 2016.2.5-6-g97f44c2
-+ adding packages
-  - ffffm-button-bind (with an own tab in advanced mode)
++ Packages hinzufuegen
+  - ffffm-button-bind (mit einem eigenen Tab im Erweitereten Modus)
   - tecff-ath9k-broken-wifi-workaround
   - tecff-respondd-watchdog
   - ffrn-lowmem-patches
-+ disabling 802.11b
-+ removing gluon-alfred
-+ changing firmware IPv6 Address and remove old mirror URL
-+ some minor internal changes on compiling scripts
-+ change version to 0.8.2
++ Abschaltung von 802.11b
++ Entfernen von gluon-alfred
++ IPv6 Adresse in der Firmware aendern und alte Mirror-URL entfernen
++ einige kleinerfe Aenderungen an den Build-Scripten
++ Aendern der Versionsnummer auf 0.8.2
 
 0.8.0: v2016.2.5
 + Gluon 2016.2.5
