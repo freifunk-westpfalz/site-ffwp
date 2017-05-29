@@ -42,6 +42,22 @@ Im Anschluss der Veroeffentlichung bitte
 ------------------------------------------
 ### Versionen (ffwp: gluon)
 
+0.8.1: v2016.2.5.x
++ Gluon 2016.2.5-6-g97f44c2
++ adding packages
+  - ffffm-button-bind (with an own tab in advanced mode)
+  - tecff-ath9k-broken-wifi-workaround
+  - tecff-respondd-watchdog
+  - ffrn-lowmem-patches
++ disabling 802.11b
++ removing gluon-alfred
++ changing firmware IPv6 Address and remove old mirror URL
++ some minor internal changes on compiling scripts
++ change version to 0.8.2
+
+0.8.0: v2016.2.5
++ Gluon 2016.2.5
+
 0.7.4: v2016.2.4
 + Gluon 2016.2.4
 
@@ -151,6 +167,8 @@ Im Anschluss der Veroeffentlichung bitte
 
 ------------------------------------------
 ### Liste der Beta-Builds
+
+0.8.1-170523-2140 (2017-05-29)
 
 0.7.4-170315-0032
 
