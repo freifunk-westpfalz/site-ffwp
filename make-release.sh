@@ -135,7 +135,9 @@ else
 	date >> $LOGFILE
 	echo "Done :)         $RESULT error/s"| tee -a $LOGFILE
 
+	#copying log files to output
 	cp $LOGFILE $PATH_GLUON/output/images/.build.txt
+	cp $PATH_LOG/pull.log $PATH_GLUON/output/images/.pull.txt
 fi
 
 cd  $PATH_GLUON/site
