@@ -42,6 +42,10 @@ Im Anschluss der Veroeffentlichung bitte
 ------------------------------------------
 ### Versionen (ffwp: gluon)
 
+0.8.2: v2016.2.6
++ Gluon 2016.2.6
++ pull.log mit in output/images Ordner kopieren (zur Doku)
+
 0.8.1: v2016.2.5.x
 + Gluon 2016.2.5-6-g97f44c2
 + Packages hinzufuegen
@@ -52,7 +56,7 @@ Im Anschluss der Veroeffentlichung bitte
 + Abschaltung von 802.11b
 + Entfernen von gluon-alfred
 + IPv6 Adresse in der Firmware aendern und alte Mirror-URL entfernen
-+ einige kleinerfe Aenderungen an den Build-Scripten
++ einige kleinere Aenderungen an den Build-Scripten
 + Aendern der Versionsnummer auf 0.8.2
 
 0.8.0: v2016.2.5
