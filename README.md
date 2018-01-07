@@ -27,20 +27,32 @@ Dies sollte erst am Tag des Rollouts passieren, da sonst u.U. der Autoupdater di
     $ ./make-manifest.sh beta   #oder stable
 
 
-Nun ist ein manuelles Signieren notwendig (BETA und STABLE werden nicht automatisch signiert). 
+Nun ist ein manuelles Signieren notwendig (BETA und STABLE werden nicht automatisch signiert).
 Nachdem alle benoetigten Personen geprueft und unterzeichnet haben, kann der Build veroeffentlicht werden.
 Dies geschieht durch Kopieren in den dafuer vorgesehen Ordner mithilfe dieses Skripts:
 
     $ ./release-pre.sh beta  #oder stable
 
-Im Anschluss der Veroeffentlichung bitte 
-- die Firmware-Dateien zusaetzlich manuell ins Versionsarchiv kopieren (mit einem neuen Ordner gemaess Branch und Version) 
+Im Anschluss der Veroeffentlichung bitte
+- die Firmware-Dateien zusaetzlich manuell ins Versionsarchiv kopieren (mit einem neuen Ordner gemaess Branch und Version)
 - die Versionsnummer in site.mk hochzaehlen
 - diese Datei hier anpassen
 
 
 ------------------------------------------
 ### Versionen (ffwp: gluon)
+0.9.0: v2017.1.4
++ Gluon 2017.1.4
++ Fastd zusätzlich ohne Crypto anbieten
++ DNS-Cache
++ Aufräumarbeiten
++ respondd-module-airtime
++ gluon-ebtables-segment-mld
++ gluon-ebtables-source-filter
+
+0.8.2: v2016.2.6
++ Gluon 2016.2.6
++ pull.log mit in output/images Ordner kopieren (zur Doku)
 
 0.8.2: v2016.2.6
 + Gluon 2016.2.6
@@ -92,24 +104,24 @@ Im Anschluss der Veroeffentlichung bitte
 + (intern) Build-Skripte zum Veroeffentlichen
 
 0.5.3: v2016.1.2
-+ Gluon 2016.1.2 
++ Gluon 2016.1.2
 + Reboot Text zeigt nun wieder Schluessel
 + (intern) Firmware-Build Skripte ergaenzt um make-manifest
 + (intern) Build-Skripte LOG-Files angepasst
 
 0.5.2: v2016.1.1
-+ Gluon 2016.1.1 
++ Gluon 2016.1.1
 + weitere Domain fuer alle Gateways und NTP
 + weitere Domain und https fuer Autoupdater,
   Aenderung der Reihenfolge, so dass Updates zuerst ueber Nameserver gehen
 
 0.5.1: v2016.1
-+ Gluon 2016.1 
++ Gluon 2016.1
 + Entfernen der Email-Aufforderung beim Einrichten als Mesh-VPN
 + Autoupdater Key fuer Xermon
 + (intern) Firmware-Build Skripte in site aufgenommen
 
-0.5.0: 
+0.5.0:
 + längere Testphase mit master (damaliges pseudo v2015.2)
 + Tests mit 802.11s Parallelbetrieb, aber wieder entfernt
 + ab Februar 2015 erste Builds mit Gluon Release v2016.1
@@ -118,7 +130,7 @@ Im Anschluss der Veroeffentlichung bitte
 0.4.0: v2015.1.2
 + Gluon 2015.1.2
 + Limit fuer verbundene Gateways auf 1 reduziert (verringert Bandbreite)
-+ Anpassung Sprachdatei Englisch 
++ Anpassung Sprachdatei Englisch
 + HT20 statt HT40+ verwenden (bei 2,4 GHz)
 + neue/geänderte Keys/Ports für Gateways 04 bis 09
 + Autobuilder Key aus BETA und STABLE entfernt, good_signatures entsprechend verringert
@@ -136,11 +148,11 @@ Im Anschluss der Veroeffentlichung bitte
 0.3.0: v2015.1  (falsche MTU, nicht installieren!)
 + Mehrsprachiger Config Mode (EN DE)
 + Mesh-on-LAN
-+ Erweiterte WLAN Konfiguration 
++ Erweiterte WLAN Konfiguration
 
 0.2.3: v2014.4
 + Autoupdater korrigiert (angeschaltet) im config mode
-+ Autoupdate direkt ausfuehren (GLUON_PRIORITY=0) 
++ Autoupdate direkt ausfuehren (GLUON_PRIORITY=0)
 
 0.2.2: v2014.4
 + keys-Mail angepasst fuer einfacheres copy & paste in peers-file
@@ -199,7 +211,7 @@ Im Anschluss der Veroeffentlichung bitte
 0.2.2-150202-0215
 
 0.2.1-150124-0215
- 
+
 0.2.0-150115-0220
 
 0.1.4-150103-1607
@@ -228,4 +240,3 @@ Im Anschluss der Veroeffentlichung bitte
 0.2.3-150207-0215 (2015-02-12)
 
 0.1.4-150103-1607 (2015-01-14)
-

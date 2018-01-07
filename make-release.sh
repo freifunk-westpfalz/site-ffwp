@@ -44,8 +44,8 @@ echo -e "\n\n\nmake dirclean" >> $LOGFILE
 make dirclean | tee -a $LOGFILE
 echo -e "\n\n\n" >> $LOGFILE
 
-#for TARGET in  ar71xx-generic
-for TARGET in  ar71xx-generic ar71xx-nand mpc85xx-generic x86-generic x86-kvm_guest
+#for TARGET in  ar71xx-generic ar71xx-tiny
+for TARGET in  ar71xx-generic ar71xx-tiny ar71xx-nand mpc85xx-generic x86-generic x86-geode x86-64
 do
 	date | tee -a $LOGFILE
 	if [ -z "$VERSION" ]
