@@ -41,6 +41,10 @@ Im Anschluss der Veroeffentlichung bitte
 
 ------------------------------------------
 ### Versionen (ffwp: gluon)
+
+0.9.1: v2017.1.5
++ Gluon 2017.1.5
+
 0.9.0: v2017.1.4
 + Gluon 2017.1.4
 + Fastd zusätzlich ohne Crypto anbieten
@@ -184,6 +188,8 @@ Im Anschluss der Veroeffentlichung bitte
 ------------------------------------------
 ### Liste der Beta-Builds
 
+0.9.0-180125-0005
+
 0.8.2-180107-0036
 
 0.8.1-170523-2140 (2017-05-29)
@@ -228,6 +234,8 @@ Im Anschluss der Veroeffentlichung bitte
 
 ------------------------------------------
 ### Liste der Stable-Builds
+
+0.8.2-180107-0036 (2018-01-13)
 
 0.7.4-170315-0032 (2017-04-08)
 
