@@ -26,8 +26,8 @@ PATH_LOG=$PATH_FFWP/fw/log
 FILE_SECRET=$PATH_FFWP/fw/autobuilder.secret
 CPU_CNT=`cat /proc/cpuinfo|grep ^processor|wc -l`
 CPU_CNT=$(($CPU_CNT-1))
-
 cd ..
+VERSION=`make show-release`
 if [ ! -d "site" ]; then
 	echo "This script must be called from within the site directory"
 	exit 1
@@ -44,13 +44,13 @@ echo -e "\n\n\nmake dirclean" >> $LOGFILE
 make dirclean | tee -a $LOGFILE
 echo -e "\n\n\n" >> $LOGFILE
 
-#for TARGET in  ar71xx-generic ar71xx-tiny
+#for TARGET in  ar71xx-tiny
 for TARGET in  ar71xx-generic ar71xx-tiny ar71xx-nand mpc85xx-generic x86-generic x86-geode x86-64
 do
 	date | tee -a $LOGFILE
 	if [ -z "$VERSION" ]
 	then
-		echo "Starting work on target $TARGET" | tee -a $LOGFILE
+		echo "Starting work on target $TARGET (1)" | tee -a $LOGFILE
 		echo -e "\n\n\nmake GLUON_TARGET=$TARGET GLUON_BRANCH=stable update" >> $LOGFILE
 		make GLUON_TARGET=$TARGET GLUON_BRANCH=stable update >> $LOGFILE 2>&1
 		echo -e "\n\n\nmake GLUON_TARGET=$TARGET GLUON_BRANCH=stable clean" >> $LOGFILE
@@ -62,7 +62,7 @@ do
 			RESULT=$(($RESULT + 1))
 		fi
 	else
-		echo "Starting work on target $TARGET" | tee -a $LOGFILE
+		echo "Starting work on target $TARGET (2)" | tee -a $LOGFILE
 		echo -e "\n\n\nmake GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION update" >> $LOGFILE
 		make GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION update >> $LOGFILE 2>&1
 		echo -e "\n\n\nmake GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION clean" >> $LOGFILE
@@ -85,23 +85,25 @@ if [ $RESULT -ne 0 ]; then
 else
 	echo "Compilation complete, creating manifest(s)" | tee -a $LOGFILE
 
-	echo -e "make GLUON_BRANCH=nightly manifest" >> $LOGFILE
-	make GLUON_BRANCH=nightly manifest >> $LOGFILE 2>&1
+	echo $VERSION > $PATH_GLUON/output/images/sysupgrade/.version.txt
+
+	echo -e "make GLUON_BRANCH=nightly GLUON_RELEASE=$VERSION manifest" >> $LOGFILE
+	make GLUON_BRANCH=nightly GLUON_RELEASE=$VERSION manifest >> $LOGFILE 2>&1
 	cp $PATH_GLUON/output/images/sysupgrade/nightly.manifest $PATH_GLUON/output/images/sysupgrade/.template.manifest
 	echo -e "\n\n\n============================================================\n\n" >> $LOGFILE
 
 	if [[ "$BRANCH" == "beta" ]] || [[ "$BRANCH" == "stable" ]]
 	then
-		echo -e "make GLUON_BRANCH=beta manifest" >> $LOGFILE
-		make GLUON_BRANCH=beta manifest >> $LOGFILE 2>&1
+		echo -e "make GLUON_BRANCH=beta GLUON_RELEASE=$VERSION manifest" >> $LOGFILE
+		make GLUON_BRANCH=beta GLUON_RELEASE=$VERSION manifest >> $LOGFILE 2>&1
 		cp $PATH_GLUON/output/images/sysupgrade/beta.manifest $PATH_GLUON/output/images/sysupgrade/.template.manifest
 		echo -e "\n\n\n============================================================\n\n" >> $LOGFILE
 	fi
 
 	if [[ "$BRANCH" == "stable" ]]
 	then
-		echo -e "make GLUON_BRANCH=stable manifest" >> $LOGFILE
-		make GLUON_BRANCH=stable manifest >> $LOGFILE 2>&1
+		echo -e "make GLUON_BRANCH=stable GLUON_RELEASE=$VERSION manifest" >> $LOGFILE
+		make GLUON_BRANCH=stable GLUON_RELEASE=$VERSION manifest >> $LOGFILE 2>&1
 		echo -e "\n\n\n============================================================\n\n" >> $LOGFILE
 	fi
 
