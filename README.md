@@ -42,6 +42,9 @@ Im Anschluss der Veroeffentlichung bitte
 ------------------------------------------
 ### Versionen (ffwp: gluon)
 
+0.9.2: v2017.1.5
++ Target ramips-mt7621 ergaenzt (fuer Ubiquiti EdgeRouter-X und Ubiquiti EdgeRouter-X SFP)
+
 0.9.1: v2017.1.5
 + Gluon 2017.1.5
 
