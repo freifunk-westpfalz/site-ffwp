@@ -42,6 +42,9 @@ Im Anschluss der Veroeffentlichung bitte
 ------------------------------------------
 ### Versionen (ffwp: gluon)
 
+0.9.3: v2017.1.5
++ Targets brcm2708-bcm2708 bzw. brcm2708-bcm2709 ergaenzt (fuer RaspberryPi 1 bzw. 2)
+
 0.9.2: v2017.1.5
 + Target ramips-mt7621 ergaenzt (fuer Ubiquiti EdgeRouter-X und Ubiquiti EdgeRouter-X SFP)
 
