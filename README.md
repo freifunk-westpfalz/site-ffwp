@@ -42,6 +42,10 @@ Im Anschluss der Veroeffentlichung bitte
 ------------------------------------------
 ### Versionen (ffwp: gluon)
 
+0.10.0: v2017.1.6
++ Gluon 2017.1.6
++ statische IPs entfernt
+
 0.9.3: v2017.1.5
 + Targets brcm2708-bcm2708 bzw. brcm2708-bcm2709 ergaenzt (fuer RaspberryPi 1 bzw. 2)
 
@@ -194,6 +198,8 @@ Im Anschluss der Veroeffentlichung bitte
 ------------------------------------------
 ### Liste der Beta-Builds
 
+0.9.3-180308-1100
+
 0.9.0-180125-0005
 
 0.8.2-180107-0036
@@ -240,6 +246,8 @@ Im Anschluss der Veroeffentlichung bitte
 
 ------------------------------------------
 ### Liste der Stable-Builds
+
+0.9.3-180308-1100 (2018-03-11)
 
 0.8.2-180107-0036 (2018-01-13)
 
