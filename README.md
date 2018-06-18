@@ -45,6 +45,9 @@ Im Anschluss der Veroeffentlichung bitte
 0.10.2: v2017.1.8
 + Gluon 2017.1.8
 
+0.10.0: v2017.1.7 (180430-2230)
++ Gluon 2017.1.7
+
 0.10.0: v2017.1.6
 + Gluon 2017.1.6
 + statische IPs entfernt
