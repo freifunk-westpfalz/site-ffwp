@@ -39,7 +39,11 @@ Dies geschieht durch Kopieren in den dafuer vorgesehen Ordner mithilfe dieses Sk
 
 Im Anschluss der Veroeffentlichung bitte
 - die Firmware-Dateien zusaetzlich manuell ins Versionsarchiv kopieren (mit einem neuen Ordner gemaess Branch und Version)
-- die Versionsnummer in site.mk hochzaehlen
+- die Versionsnummer (x.y.z-datum) in site.mk hochzaehlen (bitte nur den x.y.z Teil manuell aendern)
+  - erste Stelle (x) bisher unveraendert
+  - zweite Stelle (y) bei einem neuen STABLE release
+  - dritte Stelle (z) bei einem neuen BETA release
+  - datum - ein generierter Wert (Datum/Uhrzeit) aus dem Build-Prozess, wird in der site.mk automatisch eingesteuert
 - diese Datei hier anpassen
 
 
