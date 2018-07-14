@@ -69,7 +69,9 @@ touch $FILE_GLUON_OLD
 git fetch origin 'refs/tags/*:refs/tags/*' >> $LOGFILE 2>&1
 #git tag -l >> $LOGFILE 2>&1
 LATEST_TAG=(`git tag -l |tail -1`)
-echo -e "pull latest tag: $LATEST_TAG"  >> $LOGFILE 2>&1
+echo -e "pulled latest tag: $LATEST_TAG"  >> $LOGFILE 2>&1
+LATEST_TAG=v2017.1.8
+echo -e "used latest tag: $LATEST_TAG"  >> $LOGFILE 2>&1
 git checkout tags/$LATEST_TAG >> $LOGFILE 2>&1
 git pull >> $LOGFILE 2>&1
 

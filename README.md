@@ -42,7 +42,8 @@ Im Anschluss der Veroeffentlichung bitte
 ------------------------------------------
 ### Versionen (ffwp: gluon)
 
-0.10.3: (tbd)
+0.10.3: v.2017.1.8
++ Gluon 2017.1.8 (pinned autobuild to that version for the moment)
 
 0.10.2: v2017.1.8
 + Gluon 2017.1.8
