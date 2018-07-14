@@ -1,12 +1,16 @@
 site-ffwp
 =========
 
-Freifunk Westpfalz - Gluon Konfiguration
+Site-Konfiguration der Community Freifunk Westpfalz fuer GLUON
+
+Fuer GLUON siehe https://github.com/freifunk-gluon/gluon
+
+Fuer weitere Fragen, siehe Doku unter http://gluon.readthedocs.org/
 
 ------------------------------------------
 ### Build Schritte
 
-Alle hier genannten Befehle sind im Ordner "site" auszufuehren.
+Alle hier genannten Befehle sind im Ordner "site" auszufuehren als user "freifunk" auf der Firmware-VM.
 
 Jede Nacht laeuft ein Erstell-Vorgang (via CRON), der folgendes startet; dabei wird automatisch auch signiert:
 
