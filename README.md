@@ -42,6 +42,8 @@ Im Anschluss der Veroeffentlichung bitte
 ------------------------------------------
 ### Versionen (ffwp: gluon)
 
+0.10.3: (tbd)
+
 0.10.2: v2017.1.8
 + Gluon 2017.1.8
 
@@ -203,6 +205,8 @@ Im Anschluss der Veroeffentlichung bitte
 
 ------------------------------------------
 ### Liste der Beta-Builds
+
+0.10.2-180709-0915 (2018-07-14)
 
 0.9.3-180308-1100
 
