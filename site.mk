@@ -1,5 +1,5 @@
 # check https://github.com/freifunk-darmstadt/site-ffda for updates
-DEFAULT_GLUON_RELEASE := 0.10.4-$(shell date '+%y%m%d-%H%M')
+DEFAULT_GLUON_RELEASE := 0.10.5-$(shell date '+%y%m%d-%H%M')
 DEFAULT_GLUON_PRIORITY := 0
 
 # languages to include in images
