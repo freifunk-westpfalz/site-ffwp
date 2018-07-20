@@ -50,7 +50,7 @@ Im Anschluss der Veroeffentlichung bitte
 ------------------------------------------
 ### Versionen (ffwp: gluon)
 
-0.10.4: v.2017.1.8
+0.11.0: v.2017.1.8
 + Gluon 2017.1.8
 + ffho-autoupdater-wifi-fallback und gluon-ssid-changer hinzugefügt
 + Key von SilSte hinzugefügt
