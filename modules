@@ -1,5 +1,13 @@
-GLUON_SITE_FEEDS='ffwp'
+GLUON_SITE_FEEDS='ffwp ffho ssidchanger'
 
 PACKAGES_FFWP_REPO=https://github.com/freifunk-westpfalz/packages-ffwp.git
 PACKAGES_FFWP_BRANCH=master
 PACKAGES_FFWP_COMMIT=d91400138ba3a762043bd92bd67997fdfaeb7ce3
+
+PACKAGES_FFHO_REPO=https://git.ffho.net/FreifunkHochstift/ffho-packages.git
+PACKAGES_FFHO_BRANCH=v2017.1.x
+PACKAGES_FFHO_COMMIT=806f98a8f4bc0896ba29b903a8b9f72c39db2f09
+
+PACKAGES_SSIDCHANGER_REPO=https://github.com/sistein/gluon-ssid-changer.git
+PACKAGES_SSIDCHANGER_BRANCH=2017.1.x
+PACKAGES_SSIDCHANGER_COMMIT=b92f31b9f505249fbee21e59addff26db84c8dbe
