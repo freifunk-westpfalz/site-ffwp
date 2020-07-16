@@ -1,3 +1,17 @@
+Hinweis:
+=========
+Dieses Repository ist NICHT mehr die Quelle unserer Firmware!
+
+Die aktuellen Sourcen finden sich im Branch "ffwp_multidomain" auf:
+
+https://gitlab.karlsruhe.freifunk.net/ffwp/firmware/site
+
+
+------------------------------------------
+------------------------------------------
+
+
+
 site-ffwp
 =========
 
